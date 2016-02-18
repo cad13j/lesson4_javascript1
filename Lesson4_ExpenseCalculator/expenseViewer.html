@@ -4,8 +4,8 @@
    <!--
       LIS 2360:  Web Application Development
       Lesson 4 Assignment
-      Author:  
-      Date:   
+      Author:  Chadrick DaCosta
+      Date:   2/17/2016
       Filename: expenseViewer.html
    -->
    <meta charset="utf-8" />
@@ -50,6 +50,19 @@
               <input type="text" id="foodInput" name="food" />
               </label>
           </p>
+          <p><label for="transport">
+            Transportation (gas, taxi, cab, uber, etc.):
+              <input type="text" id="transport" name="transportation" />
+              </label>
+          </p><p><label for="miscellaneous">
+            Personal (gifts, partying, etc.):
+              <input type="text" id="miscellaneous" name="personal" />
+              </label>
+          </p><p><label for="householdInput">
+            Household (money spent on spouse, family, friend etc.):
+              <input type="text" id="householdInput" name="household" />
+              </label>
+          </p>
           
           <!--************************************************************************************************
           * Task #1:  Add additional expense categories using the above code as an example.  The 
@@ -84,7 +97,7 @@
                  <p id="foodPercentage">  </p>
                  <p id="householdPercentage">  </p>
                  <p id="transportationPercentage">  </p>
-                 <p id="otherPercentage">  </p>
+                 <p id="personalPercentage">  </p>
              </label>              
           </fieldset>
         </fieldset>
@@ -137,6 +150,10 @@
               
               var shelterAmt = document.getElementById("shelterInput").value;
               var foodAmt = document.getElementById("foodInput").value;
+              var householdAmt = document.getElementById("householdInput").value;
+              var personalAmt = document.getElementById("personalInput").value;
+              var transportationAmt = document.getElementById("transportationInput").value;
+
 
               
               
@@ -159,6 +176,9 @@
 
               shelterAmt = parseFloat(shelterAmt);
               foodAmt = parseFloat(foodAmt);
+              personalAmt = parseFloat(personalAmt);
+              transportationAmt = parseFloat(transportationAmt);
+              householdAmt = parseFloat(householdAmt);
 
 
 
@@ -178,6 +198,9 @@
               var totalExpenses; //total expenses for the user
               var shelterPct; //shelter category percentage
               var foodPct;  //food category percentage
+              var transportationPct; // transportation percentage
+              var personalPct; // Miscellaneous/personal percentage
+              var householdPct; // household percentage
 
 
 
@@ -200,7 +223,9 @@
 
               shelterPct = 100 * (shelterAmt / totalExpenses);
               foodPct = 100 * (foodAmt / totalExpenses);
-
+              transportationPct = 100 * (transportationAmt / totalExpenses);
+              personalPct = 100 * (personalAmt / totalExpenses);
+              householdPct = 100 * (householdAmt / totalExpenses);
 
               /******************************************************************************************************
                * Task 6:  Add the additional code needed to display the total expenses and the percentages for each 
@@ -223,6 +248,9 @@
               document.getElementById("totalExpenses").innerHTML = "<b>Total Expenses:     $</b> " + totalExpenses.toFixed(2);
               document.getElementById("shelterPercentage").innerHTML = "% for <b>shelter</b>:      " + shelterPct.toFixed(1);      
               document.getElementById("foodPercentage").innerHTML = "% for <b>food:</b>      " + foodPct.toFixed(1);
+              document.getElementById("personalPercentage").innerHTML = "% for <b>food:</b>      " + personalPct.toFixed(1);
+              document.getElementById("transportationPercentage").innerHTML = "% for <b>food:</b>      " + transportationPct.toFixed(1);
+              document.getElementById("householdPercentage").innerHTML = "% for <b>food:</b>      " + householdPct.toFixed(1);
 
          
          
@@ -258,6 +286,9 @@
               document.getElementById("totalExpenses").innerHTML = ""; 
               document.getElementById("shelterPercentage").innerHTML = "";      
               document.getElementById("foodPercentage").innerHTML  = "";
+              document.getElementById("personalPercentage").innerHTML  = "";
+              document.getElementById("transportationPercentage").innerHTML  = "";
+              document.getElementById("householdPercentage").innerHTML  = "";
 
 
               
